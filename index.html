@@ -52,8 +52,7 @@
                     imgElem.src = imageUri;
 
                 }, function cameraError(error) {
-                    console.debug("Unable to obtain picture: " + error, "app");
-
+                    myApp.alert("Unable to obtain picture: " + error, "app", "ERROR");
                 }, options);
             }, false);
 
