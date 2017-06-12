@@ -67,34 +67,35 @@
 
         function validateRegistrationForm() {
             var reg_txtName = document.getElementById("reg_txtName");
-            var reg_txtMail = document.getElementById("reg_txtName");
-            var reg_txtNumber = document.getElementById("reg_txtName");
+            var reg_txtMail = document.getElementById("reg_txtMail");
+            var reg_txtNumber = document.getElementById("reg_txtNumber");
 
-            if (reg_txtName.value() == "") {
+            if (reg_txtName.value == "") {
                 myApp.alert("Please fill the name field", "INCORRECT INPUT");
             }
 
-            else if (reg_txtMail.value() == "") {
+            else if (reg_txtMail.value == "") {
                 myApp.alert("Please fill the E-mail field", "INCORRECT INPUT");
             }
 
-            else if (reg_txtNumber.value() == "") {
+            else if (reg_txtNumber.value == "") {
                 myApp.alert("Please fill the Number field", "INCORRECT INPUT");
             }
+
             else {
                 myApp.alert("Successfully Registered!", "Yuuhuuu...!!!");
             }
         }
 
         function validateLoginForm() {
-            var login_txtUserID;
-            var login_txtPassword;
+            var login_txtUserID = document.getElementById("login_txtUserID");
+            var login_txtPassword = document.getElementById("login_txtPassword");
 
-            if (login_txtUserID == "") {
+            if (login_txtUserID.value == "") {
                 myApp.alert("Please fill the User ID", "INCORRECT INPUT");
             }
 
-            else if (login_txtPassword == "") {
+            else if (login_txtPassword.value == "") {
                 myApp.alert("Please fill the Password", "INCORRECT INPUT");
             }
 
@@ -223,7 +224,7 @@
                                     <a href="#signup" class="button button-medium button-fill color-blue">Sign up</a>
                                 </div>
                                 <div class="col-50">
-                                    <input type="submit" value="Login" class="button button-medium button-fill color-green">
+                                    <input type="submit" value="Login" onclick="validateLoginForm()" class="button button-medium button-fill color-green">
                                 </div>
                             </div>
                         </div>
