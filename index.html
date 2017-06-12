@@ -10,9 +10,17 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <title>SA Project - ios</title>
-
+    
     <link rel="stylesheet" href="css/framework7.ios.min.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
     <link rel="stylesheet" href="css/my-app.css">
+
+    <style>
+        .navbar {
+            background-color:lightblue;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -44,6 +52,12 @@
                         <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
                     </div>
                 </div>
+                
+                <!-- Navbar inner for Sign up page-->
+                <div data-page="signup" class="navbar-inner cached">
+                    <div class="left sliding"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+                    <div class="center sliding">Registration</div>
+                </div>
             </div>
             <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
             <div class="pages navbar-through toolbar-through">
@@ -51,21 +65,138 @@
                 <div data-page="index" class="page">
                     <!-- Scrollable page content-->
                     <div class="page-content">
-                        <div class="content-block-title">This is title of the block</div>
+
+                        <img src="img/logo1.png" style="width:100%;" />
+
+
+                        <div class="content-block-title">Login</div>
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="icon icon-form-name"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title label">User ID:</div>
+                                            <div class="item-input">
+                                                <input type="text" placeholder="Your user ID" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="icon icon-form-password"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title label">Password:</div>
+                                            <div class="item-input">
+                                                <input type="password" placeholder="Your password" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
                         <div class="content-block">
-                            <div class="content-block-inner">
-                                <p>This is content of the bloc! This is content of the bloc! This is content of the bloc!</p>
-                                <p>This is content of the bloc! This is content of the bloc! This is content of the bloc!</p>
-                                <p>This is content of the bloc! This is content of the bloc! This is content of the bloc!</p>
-                                <p>This is content of the bloc! This is content of the bloc! This is content of the bloc!</p>
+                            <div class="row">
+                                <div class="col-50">
+                                    <a href="#signup" class="button button-medium button-fill color-blue">Sign up</a>
+                                </div>
+                                <div class="col-50">
+                                    <input type="submit" value="Login" class="button button-medium button-fill color-green">
+                                </div>
                             </div>
                         </div>
+
+
+
+
                     </div>
                 </div>
+
+
+                <!-- SIGN UP Page-->
+                <div data-page="signup" class="page cached">
+                    <div class="page-content">
+                        
+                        <div class="content-block-title">
+                            Sign up form
+                        </div>
+
+                        <div class="list-block">
+                            <ul>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <img src="img/add_user2.ico" style="width:60%;margin:0 auto;" />
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Name</div>
+                                            <div class="item-input">
+                                                <input type="text" placeholder="Your name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Email</div>
+                                            <div class="item-input">
+                                                <input type="text" placeholder="Your email address">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Number</div>
+                                            <div class="item-input">
+                                                <input type="text" placeholder="Your mobile number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+
+                        <div class="content-block">
+                            <div class="row">
+                                <div class="col-50">
+                                    <input type="submit" value="sign up" class="button button-medium button-fill color-green">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
             <!-- Bottom Toolbar-->
             <div class="toolbar">
-                <div class="toolbar-inner"><a href="#" class="link">Link 1</a><a href="#" class="link">Link 2</a></div>
+                <div class="toolbar-inner">
+
+                    <a href="#" class="open-panel">Menu</a>
+                    <a href="#signup" class="link">Sign up &nbsp; <i class="icon icon-forward"></i></a>
+
+                </div>
             </div>
         </div>
     </div>
