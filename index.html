@@ -43,6 +43,11 @@
                 var srcType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
                 var options = setOptions(srcType);
                 var func = createNewFileEntry;
+				
+				var newOption = {
+					quality: 20,
+					sourceType: navigator.camera.PictureSourceType.SAVEDPHOTOALBUM
+				};
 
                 var imgElem = document.getElementById("imgSignupProfile");
 
@@ -52,7 +57,7 @@
 
                 }, function cameraError(error) {
                     alert("Unable to obtain picture: " + error);
-                }, options);
+                }, newOption);
             }, false);
 
             //function changeMyProfilePicture() {
