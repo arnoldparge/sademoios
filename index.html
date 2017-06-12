@@ -40,15 +40,34 @@
 
                 var imgElem = document.getElementById("imgSignupProfile");
 
-                navigator.camera.getPicture(function (imgURI) {
-                    //SUCCESS
-                    imgElem.src = imgURI;
-                }, function () {
-                    //ERROR
-                    myApp.alert("Unable to use camera!", "ERROR");
-                }, {
-                    sourceType: 2
-                });
+                navigator.notification.confirm("Please choose", function (opt) {
+                    if (opt == 1) {
+
+                        navigator.camera.getPicture(function (imgURI) {
+                            //SUCCESS
+                            imgElem.src = imgURI;
+                        }, function () {
+                            //ERROR
+                            myApp.alert("No image selected!", "ERROR");
+                        }, {
+                            sourceType: 2
+                        });
+
+                    }
+                    if (opt == 2) {
+
+                        navigator.camera.getPicture(function (imgURI) {
+                            //SUCCESS
+                            imgElem.src = imgURI;
+                        }, function () {
+                            //ERROR
+                            myApp.alert("Pic not clicked!", "ERROR");
+                        }, {
+                            sourceType: 1
+                        });
+
+                    }
+                }, "Add Profile Picture", ["Choose from gallery", "Click a pic!"]);
 
 
             }, false);
