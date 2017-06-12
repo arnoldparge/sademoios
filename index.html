@@ -44,12 +44,14 @@
 
                 navigator.camera.getPicture(function (imgURI) {
                     //SUCCESS
-                    imgElem.src = "data:image/jpg;base64," + imgURI;
+                    imgElem.src = imgURI;
                 }, function () {
                     //ERROR
                     navigator.notification.alert("Unable to use camera!",null,"ERROR");
                 }, {
-                    sourceType: 2
+                    sourceType: 2,
+                    targetHeight: 300,
+                    targetWidth: 300
                 });
 
 
