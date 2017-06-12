@@ -38,8 +38,8 @@
                 }, "EXITING", ["LEAVE", "STAY"]);
             }
 
-            function changeMyProfilePicture() {
-
+            document.getElementById("imgSignupProfile").addEventListener("click", function () {
+                alert("asD");
 
                 var srcType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
                 var options = setOptions(srcType);
@@ -55,7 +55,27 @@
                     console.debug("Unable to obtain picture: " + error, "app");
 
                 }, options);
-            }
+            }, false);
+
+            //function changeMyProfilePicture() {
+
+            //    alert("asD");
+
+            //    var srcType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
+            //    var options = setOptions(srcType);
+            //    var func = createNewFileEntry;
+
+            //    var imgElem = document.getElementById("imgSignupProfile");
+
+            //    navigator.camera.getPicture(function cameraSuccess(imageUri) {
+
+            //        imgElem.src = imageUri;
+
+            //    }, function cameraError(error) {
+            //        console.debug("Unable to obtain picture: " + error, "app");
+
+            //    }, options);
+            //}
 
             document.addEventListener("backbutton", function (e) {
                 e.preventDefault();
@@ -215,7 +235,7 @@
                                 <li>
                                     <div class="item-content">
                                         <div class="item-inner">
-                                            <img src="img/add_user2.ico" style="width:60%;margin:0 auto;" id="imgSignupProfile" onclick="changeMyProfilePicture()" />
+                                            <img src="img/add_user2.ico" style="width:60%;margin:0 auto;" id="imgSignupProfile" />
                                         </div>
                                     </div>
                                 </li>
