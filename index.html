@@ -43,8 +43,10 @@
                 confirmExit();
             }, false);
 
+            navigator.app.overrideButton("menubutton", true);
             document.addEventListener("menubutton", function () {
-                alert("menu pressed");
+                myApp.alert("This is example of Alert!", "Alert sample");
+                myApp.openPanel('left');
             }, false);
 
         }, false);
@@ -67,25 +69,31 @@
             <div class="list-block">
                 <ul>
                     <li>
-                        <div class="item-content">
-                            <div class="item-inner">
-                                <a href="#index" onclick="myApp.closePanel()">Sign in</a>
+                        <a href="#index" onclick="myApp.closePanel()">
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    Sign in
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div class="item-content">
-                            <div class="item-inner">
-                                <a href="#signup" onclick="myApp.closePanel()">Registration</a>
+                        <a href="#signup" onclick="myApp.closePanel()">
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    Registration
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div class="item-content">
-                            <div class="item-inner">
-                                <a onclick="confirmExit()" style="color:red;">EXIT</a>
+                        <a onclick="confirmExit()" style="color: red;">
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    EXIT
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </li>
                 </ul>
             </div>
