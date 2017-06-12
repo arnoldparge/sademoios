@@ -10,28 +10,26 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <title>SA Project - ios</title>
-    
+
     <link rel="stylesheet" href="css/framework7.ios.min.css">
     <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
     <link rel="stylesheet" href="css/my-app.css">
 
     <style>
         .navbar {
-            background-color:lightblue;
+            background-color: lightblue;
         }
 
         .panel {
-            background-color:#007aff;
+            background-color: #007aff;
         }
-
     </style>
 
     <script>
 
         document.addEventListener("deviceready", function () {
 
-            function confirmExit()
-            {
+            function confirmExit() {
                 navigator.notification.confirm("Do you want leave?", function (opt) {
                     if (opt == 1)
                         navigator.app.exitApp();
@@ -47,33 +45,13 @@
                     imgElem.src = imgURI;
                 }, function () {
                     //ERROR
-                    navigator.notification.alert("Unable to use camera!",null,"ERROR");
+                    navigator.notification.alert("Unable to use camera!", null, "ERROR");
                 }, {
-                    sourceType: 0
+                    sourceType: 2
                 });
 
 
             }, false);
-
-            //function changeMyProfilePicture() {
-
-            //    alert("asD");
-
-            //    var srcType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
-            //    var options = setOptions(srcType);
-            //    var func = createNewFileEntry;
-
-            //    var imgElem = document.getElementById("imgSignupProfile");
-
-            //    navigator.camera.getPicture(function cameraSuccess(imageUri) {
-
-            //        imgElem.src = imageUri;
-
-            //    }, function cameraError(error) {
-            //        console.debug("Unable to obtain picture: " + error, "app");
-
-            //    }, options);
-            //}
 
             document.addEventListener("backbutton", function (e) {
                 e.preventDefault();
@@ -86,6 +64,45 @@
             }, false);
 
         }, false);
+
+        function validateRegistrationForm() {
+            var reg_txtName = document.getElementById("reg_txtName");
+            var reg_txtMail = document.getElementById("reg_txtName");
+            var reg_txtNumber = document.getElementById("reg_txtName");
+
+            if (reg_txtName.value() == "") {
+                myApp.alert("Please fill the name field", "INCORRECT INPUT");
+            }
+
+            else if (reg_txtMail.value() == "") {
+                myApp.alert("Please fill the E-mail field", "INCORRECT INPUT");
+            }
+
+            else if (reg_txtNumber.value() == "") {
+                myApp.alert("Please fill the Number field", "INCORRECT INPUT");
+            }
+            else {
+                myApp.alert("Successfully Registered!", "Yuuhuuu...!!!");
+            }
+        }
+
+        function validateLoginForm() {
+            var login_txtUserID;
+            var login_txtPassword;
+
+            if (login_txtUserID == "") {
+                myApp.alert("Please fill the User ID", "INCORRECT INPUT");
+            }
+
+            else if (login_txtPassword == "") {
+                myApp.alert("Please fill the Password", "INCORRECT INPUT");
+            }
+
+            else {
+                myApp.alert("Login Successfully!", "Yuuhuuu...!!!");
+            }
+
+        }
 
     </script>
 
@@ -150,7 +167,7 @@
                         <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
                     </div>
                 </div>
-                
+
                 <!-- Navbar inner for Sign up page-->
                 <div data-page="signup" class="navbar-inner cached">
                     <div class="left sliding"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
@@ -164,7 +181,7 @@
                     <!-- Scrollable page content-->
                     <div class="page-content">
 
-                        <img src="img/logo1.png" style="width:100%;" />
+                        <img src="img/logo1.png" style="width: 100%;" />
 
 
                         <div class="content-block-title">Login</div>
@@ -178,12 +195,12 @@
                                         <div class="item-inner">
                                             <div class="item-title label">User ID:</div>
                                             <div class="item-input">
-                                                <input type="text" placeholder="Your user ID" />
+                                                <input type="text" id="login_txtUserID" placeholder="Your user ID" />
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                
+
                                 <li>
                                     <div class="item-content">
                                         <div class="item-media">
@@ -192,7 +209,7 @@
                                         <div class="item-inner">
                                             <div class="item-title label">Password:</div>
                                             <div class="item-input">
-                                                <input type="password" placeholder="Your password" />
+                                                <input type="password" id="login_txtPassword" placeholder="Your password" />
                                             </div>
                                         </div>
                                     </div>
@@ -221,7 +238,7 @@
                 <!-- SIGN UP Page-->
                 <div data-page="signup" class="page cached">
                     <div class="page-content">
-                        
+
                         <div class="content-block-title">
                             Sign up form
                         </div>
@@ -232,7 +249,7 @@
                                 <li>
                                     <div class="item-content">
                                         <div class="item-inner">
-                                            <img src="img/add_user2.ico" style="width:60%;margin:0 auto;" id="imgSignupProfile" />
+                                            <img src="img/add_user2.ico" style="width: 60%; margin: 0 auto;" id="imgSignupProfile" />
                                         </div>
                                     </div>
                                 </li>
@@ -242,7 +259,7 @@
                                         <div class="item-inner">
                                             <div class="item-title label">Name</div>
                                             <div class="item-input">
-                                                <input type="text" placeholder="Your name">
+                                                <input type="text" id="reg_txtName" placeholder="Your name">
                                             </div>
                                         </div>
                                     </div>
@@ -253,7 +270,7 @@
                                         <div class="item-inner">
                                             <div class="item-title label">Email</div>
                                             <div class="item-input">
-                                                <input type="text" placeholder="Your email address">
+                                                <input type="text" id="reg_txtMail" placeholder="Your email address">
                                             </div>
                                         </div>
                                     </div>
@@ -264,13 +281,11 @@
                                         <div class="item-inner">
                                             <div class="item-title label">Number</div>
                                             <div class="item-input">
-                                                <input type="text" placeholder="Your mobile number">
+                                                <input type="text" id="reg_txtNumber" placeholder="Your mobile number">
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-
-
 
                             </ul>
                         </div>
@@ -278,7 +293,7 @@
                         <div class="content-block">
                             <div class="row">
                                 <div class="col-50">
-                                    <input type="submit" value="sign up" class="button button-medium button-fill color-green">
+                                    <input type="submit" onclick="validateRegistrationForm()" value="sign up" class="button button-medium button-fill color-green">
                                 </div>
                             </div>
                         </div>
