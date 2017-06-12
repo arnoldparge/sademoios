@@ -42,7 +42,7 @@
 
                 navigator.camera.getPicture(function (imgURI) {
                     //SUCCESS
-                    imgElem.src = "data:image/jpg;base64," + imgURI;
+                    imgElem.src = "data:image/jpeg;base64," + imgURI;
                 }, function () {
                     //ERROR
                     myApp.alert("Unable to use camera!", null, "ERROR");
