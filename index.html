@@ -21,6 +21,23 @@
         }
     </style>
 
+    <script>
+
+        document.addEventListener("deviceready", function () {
+            document.addEventListener("backbutton", function (e) {
+                e.preventDefault();
+                navigator.notification.confirm("Do you want leave?", function (opt) {
+                    if (opt == 1)
+                        navigator.app.exitApp();
+                }, "EXITING", ["LEAVE", "STAY"]);
+            }, false);
+            document.addEventListener("menubutton", function () {
+                myApp.openPanel('left');
+            }, false);
+        }, false);
+
+    </script>
+
 </head>
 
 <body>
