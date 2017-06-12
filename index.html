@@ -19,21 +19,34 @@
         .navbar {
             background-color:lightblue;
         }
+
+        .panel {
+            background-color:#007aff;
+        }
+
     </style>
 
     <script>
 
         document.addEventListener("deviceready", function () {
-            document.addEventListener("backbutton", function (e) {
-                e.preventDefault();
+
+            function confirmExit()
+            {
                 navigator.notification.confirm("Do you want leave?", function (opt) {
                     if (opt == 1)
                         navigator.app.exitApp();
                 }, "EXITING", ["LEAVE", "STAY"]);
+            }
+
+            document.addEventListener("backbutton", function (e) {
+                e.preventDefault();
+                confirmExit();
             }, false);
+
             document.addEventListener("menubutton", function () {
-                myApp.openPanel('left');
+                alert("menu pressed");
             }, false);
+
         }, false);
 
     </script>
@@ -51,7 +64,31 @@
     <!-- Left panel with reveal effect-->
     <div class="panel panel-left panel-reveal">
         <div class="content-block">
-            <p>Left panel content goes here</p>
+            <div class="list-block">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <a href="#index" onclick="myApp.closePanel()">Sign in</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <a href="#signup" onclick="myApp.closePanel()">Registration</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <a onclick="confirmExit()" style="color:red;">EXIT</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
