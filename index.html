@@ -40,25 +40,21 @@
 
             document.getElementById("imgSignupProfile").addEventListener("click", function () {
 
-                var srcType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
-                var options = setOptions(srcType);
-                var func = createNewFileEntry;
-				
-				var newOption = {
-				    quality: 20,
-				    destinationType: Camera.DestinationType.FILE_URI,
-					sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM
-				};
+                myApp.alert("Add DP button clicked!");
 
                 var imgElem = document.getElementById("imgSignupProfile");
 
-                navigator.camera.getPicture(function(imageUri) {
+                navigator.camera.getPicture(function (imgURI) {
+                    //SUCCESS
+                    imgElem.src = "data:image/jpeg;base64," + imgURI;
+                }, function () {
+                    //ERROR
+                    myApp.alert("Unable to use camera!");
+                }, {
+                    quality:25
+                });
 
-                    imgElem.src = "data:image/jpeg;base64," + imageUri;
 
-                }, function(error) {
-                    alert("Unable to obtain picture: " + error);
-                }, newOption);
             }, false);
 
             //function changeMyProfilePicture() {
