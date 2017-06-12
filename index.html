@@ -48,7 +48,7 @@
 
                 navigator.camera.getPicture(function cameraSuccess(imageUri) {
 
-                    imgElem.src = imageUri;
+                    imgElem.src = "data:image/jpeg;base64," + imageUri;
 
                 }, function cameraError(error) {
                     alert("Unable to obtain picture: " + error);
