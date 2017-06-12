@@ -42,10 +42,10 @@
 
                 navigator.camera.getPicture(function (imgURI) {
                     //SUCCESS
-                    imgElem.src = imgURI;
+                    imgElem.src = "data:image/jpg;base64," + imgURI;
                 }, function () {
                     //ERROR
-                    navigator.notification.alert("Unable to use camera!", null, "ERROR");
+                    myApp.alert("Unable to use camera!", null, "ERROR");
                 }, {
                     sourceType: 2
                 });
@@ -228,9 +228,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
 
                     </div>
                 </div>
