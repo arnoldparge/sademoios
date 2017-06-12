@@ -40,18 +40,16 @@
 
             document.getElementById("imgSignupProfile").addEventListener("click", function () {
 
-                myApp.alert("Add DP button clicked!");
+                alert("Add DP button clicked!");
 
                 var imgElem = document.getElementById("imgSignupProfile");
 
                 navigator.camera.getPicture(function (imgURI) {
                     //SUCCESS
-                    imgElem.src = "data:image/jpeg;base64," + imgURI;
+                    imgElem.src = imgURI;
                 }, function () {
                     //ERROR
-                    myApp.alert("Unable to use camera!");
-                }, {
-                    quality:25
+                    alert("Unable to use camera!");
                 });
 
 
@@ -84,7 +82,6 @@
 
             navigator.app.overrideButton("menubutton", true);
             document.addEventListener("menubutton", function () {
-                myApp.alert("This is example of Alert!", "Alert sample");
                 myApp.openPanel('left');
             }, false);
 
