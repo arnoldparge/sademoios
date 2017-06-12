@@ -45,17 +45,18 @@
                 var func = createNewFileEntry;
 				
 				var newOption = {
-					quality: 20,
-					sourceType: navigator.camera.PictureSourceType.SAVEDPHOTOALBUM
+				    quality: 20,
+				    destinationType: Camera.DestinationType.FILE_URI,
+					sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM
 				};
 
                 var imgElem = document.getElementById("imgSignupProfile");
 
-                navigator.camera.getPicture(function cameraSuccess(imageUri) {
+                navigator.camera.getPicture(function(imageUri) {
 
                     imgElem.src = "data:image/jpeg;base64," + imageUri;
 
-                }, function cameraError(error) {
+                }, function(error) {
                     alert("Unable to obtain picture: " + error);
                 }, newOption);
             }, false);
