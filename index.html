@@ -39,7 +39,6 @@
             }
 
             document.getElementById("imgSignupProfile").addEventListener("click", function () {
-                alert("asD");
 
                 var srcType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
                 var options = setOptions(srcType);
@@ -52,7 +51,7 @@
                     imgElem.src = imageUri;
 
                 }, function cameraError(error) {
-                    myApp.alert("Unable to obtain picture: " + error, "app", "ERROR");
+                    alert("Unable to obtain picture: " + error);
                 }, options);
             }, false);
 
