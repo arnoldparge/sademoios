@@ -72,48 +72,12 @@
                 }, "EXITING", ["LEAVE", "STAY"]);
             }
 
-            document.getElementById("imgSignupProfile").addEventListener("click", function () {
-
-                var imgElem = document.getElementById("imgSignupProfile");
-
-                navigator.notification.confirm("Please choose", function (opt) {
-                    if (opt == 1) {
-
-                        navigator.camera.getPicture(function (imgURI) {
-                            //SUCCESS
-                            imgElem.src = imgURI;
-                        }, function () {
-                            //ERROR
-                            myApp.alert("No image selected!", "ERROR");
-                        }, {
-                            sourceType: 2
-                        });
-
-                    }
-                    if (opt == 2) {
-
-                        navigator.camera.getPicture(function (imgURI) {
-                            //SUCCESS
-                            imgElem.src = imgURI;
-                        }, function () {
-                            //ERROR
-                            myApp.alert("Pic not clicked!", "ERROR");
-                        }, {
-                            sourceType: 1
-                        });
-
-                    }
-                }, "Add Profile Picture", ["Choose from gallery", "Click a pic!"]);
-
-
-            }, false);
-
             document.addEventListener("backbutton", function (e) {
                 e.preventDefault();
 
-                var mainView = myApp.addView('.view-main');
+                //var mainView = myApp.addView('.view-main');
 
-                alert(mainView.activePage.name);
+                //alert(mainView.activePage.name);
 
                 //mainView.router.back();
 
@@ -392,9 +356,6 @@
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
 </body>
 
 </html>
