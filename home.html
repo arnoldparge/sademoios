@@ -16,13 +16,49 @@
     <link rel="stylesheet" href="css/my-app.css">
 
     <style>
+
+        .views {
+            box-shadow:gray 0 0 10px 0;
+        }
+
         .navbar {
             background-color: lightblue;
         }
 
         .panel {
-            background-color: #007aff;
+            background-color: lightblue; /*#007aff;*/
+            box-shadow:gray 0 0 10px 0;
         }
+
+        ._home-option {
+            margin:10px;
+            text-align:center;
+            /*box-shadow:gray 0 0 10px 0;*/
+            padding:5px;
+            color:gray;
+        }
+
+        ._home-option-img {
+            border-radius:200px;
+            overflow:hidden;
+            height:120px;
+            width:120px;
+            margin:0 auto;
+        }
+
+            ._home-option-img > img {
+                width:100%;
+            }
+
+        ._home-option-desc {
+            margin-top:15px;
+        }
+
+        ._home-option-desc-head {
+            font-size:20px;
+            margin-bottom:10px;
+        }
+
     </style>
 
     <script>
@@ -106,24 +142,6 @@
             }
         }
 
-        function validateLoginForm() {
-            var login_txtUserID = document.getElementById("login_txtUserID");
-            var login_txtPassword = document.getElementById("login_txtPassword");
-
-            if (login_txtUserID.value == "") {
-                myApp.alert("Please fill the User ID", "INCORRECT INPUT");
-            }
-
-            else if (login_txtPassword.value == "") {
-                myApp.alert("Please fill the Password", "INCORRECT INPUT");
-            }
-
-            else {
-                myApp.alert("Login Successfully!", "Yuuhuuu...!!!");
-            }
-
-        }
-
     </script>
 
 </head>
@@ -141,33 +159,91 @@
         <div class="content-block">
             <div class="list-block">
                 <ul>
+
                     <li>
-                        <a href="#index" onclick="myApp.closePanel()">
+                        <div class="_home-option">
+                            <div class="_home-option-img">
+                                <img src="img/home_option.png" />
+                            </div>
+                            <div class="_home-option-desc">
+                                <div class="_home-option-desc-head">
+                                    User Name
+                                </div>
+                                Something about the user
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="#" onclick="myApp.closePanel()">
                             <div class="item-content">
                                 <div class="item-inner">
-                                    Sign in
+                                    &#127968; &nbsp; Home
                                 </div>
                             </div>
                         </a>
                     </li>
+
                     <li>
-                        <a href="#signup" onclick="myApp.closePanel()">
+                        <a href="#" onclick="myApp.closePanel()">
                             <div class="item-content">
                                 <div class="item-inner">
-                                    Registration
+                                    &#128100; &nbsp; My profile
                                 </div>
                             </div>
                         </a>
                     </li>
+
                     <li>
-                        <a onclick="confirmExit()" style="color: red;">
+                        <a href="#" onclick="myApp.closePanel()">
                             <div class="item-content">
                                 <div class="item-inner">
-                                    EXIT
+                                    &#128188; &nbsp; Item profiles
                                 </div>
                             </div>
                         </a>
                     </li>
+
+                    <li>
+                        <a href="#" onclick="myApp.closePanel()">
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    &#128276; &nbsp; Notfications
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" onclick="myApp.closePanel()">
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    &#128062; &nbsp; Lost items
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" onclick="myApp.closePanel()">
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    &#128736; &nbsp; Settings
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" onclick="myApp.closePanel()">
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    &#128682; &nbsp; Logout
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -181,18 +257,23 @@
                 <!-- Navbar inner for Index page-->
                 <div data-page="index" class="navbar-inner">
                     <!-- We have home navbar without left link-->
-                    <div class="center sliding">SA App Demo</div>
+                    <div class="center sliding">Home</div>
                     <div class="right">
                         <!-- Right link contains only icon - additional "icon-only" class-->
                         <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
                     </div>
                 </div>
 
-                <!-- Navbar inner for Sign up page-->
-                <div data-page="signup" class="navbar-inner cached">
+                <!-- Navbar inner for Option A page-->
+                <div data-page="optiona" class="navbar-inner cached">
                     <div class="left sliding"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
-                    <div class="center sliding">Registration</div>
+                    <div class="center sliding">Lost an item</div>
+                    <div class="right">
+                        <!-- Right link contains only icon - additional "icon-only" class-->
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
                 </div>
+
             </div>
             <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
             <div class="pages navbar-through toolbar-through">
@@ -201,120 +282,85 @@
                     <!-- Scrollable page content-->
                     <div class="page-content">
 
-                        <img src="img/logo1.png" style="width: 100%;" />
-
-
-                        <div class="content-block-title">Login</div>
-                        <div class="list-block">
-                            <ul>
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-media">
-                                            <i class="icon icon-form-name"></i>
-                                        </div>
-                                        <div class="item-inner">
-                                            <div class="item-title label">User ID:</div>
-                                            <div class="item-input">
-                                                <input type="text" id="login_txtUserID" placeholder="Your user ID" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-media">
-                                            <i class="icon icon-form-password"></i>
-                                        </div>
-                                        <div class="item-inner">
-                                            <div class="item-title label">Password:</div>
-                                            <div class="item-input">
-                                                <input type="password" id="login_txtPassword" placeholder="Your password" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
                         <div class="content-block">
+
                             <div class="row">
-                                <div class="col-50">
-                                    <a href="#signup" class="button button-medium button-fill color-blue">Sign up</a>
+
+                                <div class="col-auto">
+                                    <a href="#optiona">
+                                        <div class="_home-option">
+                                            <div class="_home-option-img">
+                                                <img src="img/home_option.png" />
+                                            </div>
+                                            <div class="_home-option-desc">
+                                                <div class="_home-option-desc-head">
+                                                    Option A
+                                                </div>
+                                                Click here to report lost item
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="col-50">
-                                    <input type="submit" value="Login" onclick="validateLoginForm()" class="button button-medium button-fill color-green">
+
+                                <div class="col-auto">
+                                    <div class="_home-option">
+                                        <div class="_home-option-img">
+                                            <img src="img/home_option.png" />
+                                        </div>
+                                        <div class="_home-option-desc">
+                                            <div class="_home-option-desc-head">
+                                                Option B
+                                            </div>
+                                            Click here if found a lost item
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
+
+                            <div class="row">
+
+                                <div class="col-auto">
+                                    <div class="_home-option">
+                                        <div class="_home-option-img">
+                                            <img src="img/home_option.png" />
+                                        </div>
+                                        <div class="_home-option-desc">
+                                            <div class="_home-option-desc-head">
+                                                Option C
+                                            </div>
+                                            Click here for group work
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-auto">
+                                    <div class="_home-option">
+                                        <div class="_home-option-img">
+                                            <img src="img/home_option.png" />
+                                        </div>
+                                        <div class="_home-option-desc">
+                                            <div class="_home-option-desc-head">
+                                                Option D
+                                            </div>
+                                            Click here for cleaning service
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
                         </div>
 
                     </div>
                 </div>
 
-
-                <!-- SIGN UP Page-->
-                <div data-page="signup" class="page cached">
+                <div data-page="optiona" class="page cached">
                     <div class="page-content">
 
-                        <div class="content-block-title">
-                            Sign up form
-                        </div>
-
-                        <div class="list-block">
-                            <ul>
-
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <img src="img/add_user2.ico" style="width: 60%; margin: 0 auto;" id="imgSignupProfile" />
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-title label">Name</div>
-                                            <div class="item-input">
-                                                <input type="text" id="reg_txtName" placeholder="Your name">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-title label">Email</div>
-                                            <div class="item-input">
-                                                <input type="text" id="reg_txtMail" placeholder="Your email address">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-title label">Number</div>
-                                            <div class="item-input">
-                                                <input type="text" id="reg_txtNumber" placeholder="Your mobile number">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-
                         <div class="content-block">
-                            <div class="row">
-                                <div class="col-50">
-                                    <input type="submit" onclick="validateRegistrationForm()" value="sign up" class="button button-medium button-fill color-green">
-                                </div>
-                            </div>
+                            Hellow
                         </div>
-
                     </div>
                 </div>
 
@@ -323,8 +369,8 @@
             <div class="toolbar">
                 <div class="toolbar-inner">
 
-                    <a href="#" class="open-panel">Menu</a>
-                    <a href="#signup" class="link">Sign up &nbsp; <i class="icon icon-forward"></i></a>
+                    <a href="#" class="link">Lost Item</a>
+                    <a href="#" class="link">Found Item</a>
 
                 </div>
             </div>
@@ -339,9 +385,6 @@
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
 </body>
 
 </html>
