@@ -110,6 +110,13 @@
 
             document.addEventListener("backbutton", function (e) {
                 e.preventDefault();
+
+                var mainView = myApp.addView('.view-main');
+
+                alert(mainView.activePage.name);
+
+                //mainView.router.back();
+
                 confirmExit();
             }, false);
 
