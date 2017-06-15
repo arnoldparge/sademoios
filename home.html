@@ -59,6 +59,63 @@
             margin-bottom:10px;
         }
 
+        ._item-list {
+            width:80%;
+            margin: 0 auto;
+            background-color:blue;
+
+        }
+
+        ._item-img {
+            border-radius:200px;
+            overflow:hidden;
+            height:120px;
+            width:120px;
+            margin:0 auto;
+        }
+
+            ._item-img > img {
+                width:100%;
+            }
+
+        ._my-chip-media {
+            height:120px;
+            width:120px;
+        }
+
+        ._my-chip {
+            height:100px;
+            width:80%;
+            margin-top:20px;
+            margin-bottom:20px;
+            border-radius:20px;
+        }
+
+        ._my-chip-label {
+            padding-left:15px;
+            font-size:20px;
+        }
+
+        [data-page="optiona_1"] > div > div > ul > li > ._home-option-img {
+            height: 150px;
+            width: 150px;
+        }
+
+        ._optionc-options {
+            width:60%;
+            margin:0 auto;
+            margin-top:20px;
+            padding:10%;
+            border-radius:20px;
+            background-color:skyblue;
+            text-align:center;
+            font-size:18px;
+        }
+
+            ._optionc-options > a {
+                color:black;
+            }
+
     </style>
 
     <script>
@@ -72,6 +129,48 @@
                 }, "EXITING", ["LEAVE", "STAY"]);
             }
 
+            $$("._close-app").click(function () {
+                confirmExit();
+            });
+
+
+
+            $$("#imgFoundLostItem").click(function () {
+
+                var imgElem = document.getElementById("imgFoundLostItem");
+
+                navigator.notification.confirm("How would you like to upload?", function (opt) {
+                    if (opt == 1) {
+
+                        navigator.camera.getPicture(function (imgURI) {
+                            //SUCCESS
+                            imgElem.src = imgURI;
+                        }, function () {
+                            //ERROR
+                            myApp.alert("No image selected!", "ERROR");
+                        }, {
+                            sourceType: 2
+                        });
+
+                    }
+                    if (opt == 2) {
+
+                        navigator.camera.getPicture(function (imgURI) {
+                            //SUCCESS
+                            imgElem.src = imgURI;
+                        }, function () {
+                            //ERROR
+                            myApp.alert("Pic not clicked!", "ERROR");
+                        }, {
+                            sourceType: 1
+                        });
+
+                    }
+                }, "Found Item", ["Choose from gallery", "Click a pic!"]);
+
+
+            }, false);
+
             document.addEventListener("backbutton", function (e) {
                 e.preventDefault();
 
@@ -81,7 +180,10 @@
 
                 //mainView.router.back();
 
-                confirmExit();
+                //confirmExit();
+
+                $$(".back").click();
+
             }, false);
 
             navigator.app.overrideButton("menubutton", true);
@@ -228,6 +330,9 @@
                 <!-- Navbar inner for Index page-->
                 <div data-page="index" class="navbar-inner">
                     <!-- We have home navbar without left link-->
+                    <div class="left">
+                        <a href="#" class="link _close-app" style="color:red;">EXIT</a>
+                    </div>
                     <div class="center sliding">Home</div>
                     <div class="right">
                         <!-- Right link contains only icon - additional "icon-only" class-->
@@ -239,6 +344,36 @@
                 <div data-page="optiona" class="navbar-inner cached">
                     <div class="left sliding"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
                     <div class="center sliding">Lost an item</div>
+                    <div class="right">
+                        <!-- Right link contains only icon - additional "icon-only" class-->
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navbar inner for Option A_1 page-->
+                <div data-page="optiona_1" class="navbar-inner cached">
+                    <div class="left sliding"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+                    <div class="center sliding">Lost an item</div>
+                    <div class="right">
+                        <!-- Right link contains only icon - additional "icon-only" class-->
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navbar inner for Option B page-->
+                <div data-page="optionb" class="navbar-inner cached">
+                    <div class="left sliding"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+                    <div class="center sliding">Snap a photo</div>
+                    <div class="right">
+                        <!-- Right link contains only icon - additional "icon-only" class-->
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navbar inner for Option C page-->
+                <div data-page="optionc" class="navbar-inner cached">
+                    <div class="left sliding"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+                    <div class="center sliding">Group Work</div>
                     <div class="right">
                         <!-- Right link contains only icon - additional "icon-only" class-->
                         <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
@@ -265,9 +400,45 @@
                                             </div>
                                             <div class="_home-option-desc">
                                                 <div class="_home-option-desc-head">
-                                                    Option A
+                                                    Lost Item
                                                 </div>
                                                 Click here to report lost item
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-auto">
+                                    <a href="#optionb">
+                                        <div class="_home-option">
+                                            <div class="_home-option-img">
+                                                <img src="img/home_option.png" />
+                                            </div>
+                                            <div class="_home-option-desc">
+                                                <div class="_home-option-desc-head">
+                                                    Snap a photo
+                                                </div>
+                                                Click here if found a lost item
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-auto">
+                                    <a href="#optionc">
+                                        <div class="_home-option">
+                                            <div class="_home-option-img">
+                                                <img src="img/home_option.png" />
+                                            </div>
+                                            <div class="_home-option-desc">
+                                                <div class="_home-option-desc-head">
+                                                    Group work
+                                                </div>
+                                                Click here for group work
                                             </div>
                                         </div>
                                     </a>
@@ -280,39 +451,7 @@
                                         </div>
                                         <div class="_home-option-desc">
                                             <div class="_home-option-desc-head">
-                                                Option B
-                                            </div>
-                                            Click here if found a lost item
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-
-                                <div class="col-auto">
-                                    <div class="_home-option">
-                                        <div class="_home-option-img">
-                                            <img src="img/home_option.png" />
-                                        </div>
-                                        <div class="_home-option-desc">
-                                            <div class="_home-option-desc-head">
-                                                Option C
-                                            </div>
-                                            Click here for group work
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-auto">
-                                    <div class="_home-option">
-                                        <div class="_home-option-img">
-                                            <img src="img/home_option.png" />
-                                        </div>
-                                        <div class="_home-option-desc">
-                                            <div class="_home-option-desc-head">
-                                                Option D
+                                                Cleaning
                                             </div>
                                             Click here for cleaning service
                                         </div>
@@ -326,12 +465,272 @@
                     </div>
                 </div>
 
+                <!--OPTION A PAGE-->
                 <div data-page="optiona" class="page cached">
                     <div class="page-content">
 
-                        <div class="content-block">
-                            Hellow
+                        <div class="content-block-title">Select the item you lost!</div>
+                        <div class="list-block">
+                            <ul style="text-align:center;">
+                                <li>
+                                    <a href="#optiona_1">
+                                        <div class="chip _my-chip">
+                                            <div class="chip-media _my-chip-media">
+                                                <img src="img/home_option.png" />
+                                            </div>
+                                            <div class="chip-label _my-chip-label">Shirt</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#optiona_1">
+                                        <div class="chip _my-chip">
+                                            <div class="chip-media _my-chip-media">
+                                                <img src="img/home_option.png" />
+                                            </div>
+                                            <div class="chip-label _my-chip-label">Shirt</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#optiona_1">
+                                        <div class="chip _my-chip">
+                                            <div class="chip-media _my-chip-media">
+                                                <img src="img/home_option.png" />
+                                            </div>
+                                            <div class="chip-label _my-chip-label">Shirt</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#optiona_1">
+                                        <div class="chip _my-chip">
+                                            <div class="chip-media _my-chip-media">
+                                                <img src="img/home_option.png" />
+                                            </div>
+                                            <div class="chip-label _my-chip-label">Shirt</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
+                        <!--<div class="list-block">
+                            <ul>
+                                <li>
+                                    <div class="_item-list">
+                                        <div class="_item-img">
+                                            <img src="img/home_option.png" />
+                                        </div>
+                                        <div class="_item-desc">
+                                            <div class="_item-name">
+
+                                            </div>
+                                            <div class="_item-btn">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>-->
+                    </div>
+                </div>
+
+                <!--OPTION A_1 PAGE-->
+                <div data-page="optiona_1" class="page cached">
+                    <div class="page-content">
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <br />
+                                    <div class="_home-option-img">
+                                        <img src="img/home_option.png" />
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <label class="label-radio item-content">
+                                        <input type="radio" name="my-radio" value="Lost" checked="checked">
+                                        <div class="item-media">
+                                            <i class="icon icon-form-radio"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">Lost</div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label-radio item-content">
+                                        <input type="radio" name="my-radio" value="Found">
+                                        <div class="item-media">
+                                            <i class="icon icon-form-radio"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">Found</div>
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="content-block-title">
+                            Lost date:
+                        </div>
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="icon icon-form-name"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title label">Date:</div>
+                                            <div class="item-input">
+                                                <input type="date" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="icon icon-form-name"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title label">Time:</div>
+                                            <div class="item-input">
+                                                <input type="time" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="content-block-title">
+                            Found date:
+                        </div>
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="icon icon-form-name"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title label">Date:</div>
+                                            <div class="item-input">
+                                                <input type="date" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="icon icon-form-name"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title label">Time:</div>
+                                            <div class="item-input">
+                                                <input type="time" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <input type="submit" style="width:70%;margin: 0 auto;" class="button button-fill color-green" onclick="myApp.alert('asdasdasd asdasdasd asdasdasd asdasdasd asdasdasd asdasdasd asdasdasd asdasdasd asdasdasd asdasdasd','Acknowlegement')" /> <!--data-popup=".after-submit-lost" />-->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <br />
+                        <br />
+
+                    </div>
+                </div>
+
+                <!--OPTION B PAGE-->
+                <div class="page cached" data-page="optionb">
+                    <div class="page-content">
+
+                        <div class="content-block-title">
+                            Found an item, please provide the details!
+                        </div>
+
+                        <div class="list-block">
+                            <ul>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <img src="img/add_found_item.png" style="width: 60%; margin: 0 auto; border-radius:10px;" id="imgFoundLostItem" />
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Description</div>
+                                            <div class="item-input">
+                                                <textarea id="optionb_txtDesc" placeholder="Please describe the item"> </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="content-block">
+                            <div class="row">
+                                <input type="submit" style="width: 50%; margin: 0 auto;" value="Report this lost item" class="button button-medium button-fill color-green">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--OPTION C PAGE-->
+                <div class="page cached" data-page="optionc">
+                    <div class="page-content">
+                        <div class="_optionc-options">
+                            <a>Create an activity group</a>
+                        </div>
+                        <div class="_optionc-options">
+                            <a>Join an activity group</a>
+                        </div>
+                        <div class="_optionc-options">
+                            <a>Lend a helping hand</a>
+                        </div>
+                        <div class="_optionc-options">
+                            <a>My activities</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--popup after-submit-lost-->
+                <div class="popup after-submit-lost">
+                    <div class="content-block">
+                        <h1>Acknowledgement</h1>
+                        <hr />
+                        <h2>
+                            Lorem ipsum dolor sit amet,
+                            consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea
+                            commodo consequat
+                        </h2>
+                        <h1><a href="#" class="close-popup">Close popup</a></h1>
                     </div>
                 </div>
 
@@ -340,8 +739,10 @@
             <div class="toolbar">
                 <div class="toolbar-inner">
 
-                    <a href="#" class="link">Lost Item</a>
-                    <a href="#" class="link">Found Item</a>
+                    <a href="#" class="link">&#128100;</a>
+                    <a href="#" class="link" >&#128188;</a>
+                    <a href="#" class="link" >&#128276;</a>
+                    <a href="#" class="link" >&#128062;</a>
 
                 </div>
             </div>
