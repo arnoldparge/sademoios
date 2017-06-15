@@ -380,6 +380,16 @@
                     </div>
                 </div>
 
+                <!-- Navbar inner for Option C_1 page-->
+                <div data-page="optionc_1" class="navbar-inner cached">
+                    <div class="left sliding"><a href="#" class="back link"><i class="icon icon-back"></i><span>Back</span></a></div>
+                    <div class="center sliding">Create Active Group</div>
+                    <div class="right">
+                        <!-- Right link contains only icon - additional "icon-only" class-->
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
+                </div>
+
             </div>
             <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
             <div class="pages navbar-through toolbar-through">
@@ -701,7 +711,7 @@
                 <div class="page cached" data-page="optionc">
                     <div class="page-content">
                         <div class="_optionc-options">
-                            <a>Create an activity group</a>
+                            <a href="#optionc_1">Create an activity group</a>
                         </div>
                         <div class="_optionc-options">
                             <a>Join an activity group</a>
@@ -712,6 +722,122 @@
                         <div class="_optionc-options">
                             <a>My activities</a>
                         </div>
+                    </div>
+                </div>
+
+                <!--OPTION C_1 PAGE-->
+                <div class="page cached" data-page="optionc_1" >
+                    <div class="page-content">
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <label class="label-radio item-content">
+                                        <input type="radio" name="optionc_1_group_type" value="Meeting" checked="checked">
+                                        <div class="item-inner">
+                                            <div class="item-title">Meeting</div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label-radio item-content">
+                                        <input type="radio" name="optionc_1_group_type" value="Conceptual">
+                                        <div class="item-inner">
+                                            <div class="item-title">Conceptual</div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="label-radio item-content">
+                                        <input type="radio" name="optionc_1_group_type" value="Socializing">
+                                        <div class="item-inner">
+                                            <div class="item-title">Socializing</div>
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="list-block">
+
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Group name</div>
+                                            <div class="item-input">
+                                                <input type="text" id="optionc_1_txtGroupName" placeholder="Name of the group">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Description</div>
+                                            <div class="item-input">
+                                                <textarea id="Text1" placeholder="Write a description of what your activity group is about"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Date</div>
+                                            <div class="item-input">
+                                                <input type="date" id="Text2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Time</div>
+                                            <div class="item-input">
+                                                <input type="time" id="Date1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <label class="label-checkbox item-content">
+                                        <input type="checkbox" name="my-checkbox" value="Books">
+                                        <div class="item-media">
+                                            <i class="icon icon-form-checkbox"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">Is it a reoccurring event?</div>
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="list-block">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">Venue</div>
+                                            <div class="item-input">
+                                                <textarea id="Textarea1" placeholder="What is the venue of the group"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="content-block">
+                            <input type="submit" value="Create Group" onclick="myApp.alert('Your activity group has been successfully created. Check under your activities menu to edit your group if needed or check how many people have joined your group.','Group created')" class="button button-medium button-fill color-green">
+                        </div>
+
                     </div>
                 </div>
 
@@ -736,7 +862,7 @@
 
             </div>
             <!-- Bottom Toolbar-->
-            <div class="toolbar">
+<!--            <div class="toolbar">
                 <div class="toolbar-inner">
 
                     <a href="#" class="link">&#128100;</a>
@@ -745,7 +871,7 @@
                     <a href="#" class="link" >&#128062;</a>
 
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 
